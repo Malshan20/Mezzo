@@ -45,7 +45,6 @@ const About = () => {
             src="/banner.jpg"
             alt="Background"
             className="absolute left-0 top-0 h-full w-full object-cover opacity-90"
-            onError={(e) => (e.target.src = "img/fallback.jpg")} // Fallback image
           />
           <div className="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold font-serif" style={{ fontSize: '80px' }}>
           Discover Your Timeless Style
@@ -56,11 +55,7 @@ const About = () => {
       <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
         
 
-        <AnimatedTitle
-          text="A CONSCIOUS WARDROBE"
-          title=" <b>Fashion inspired </b> by where we're from —"
-          containerClass="mt-5 !text-black text-center"
-        />
+        
 
         <div className="about-subtext text-center">
           <p className="text-gray-900 font-serif" style={{ fontSize: '40px' }}> the sunny shores of California.</p>

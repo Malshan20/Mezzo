@@ -16,10 +16,9 @@ export function CollectionCard({ collection }: CollectionCardProps) {
       transition={{ duration: 0.5 }}
       className="relative aspect-[3/4] overflow-hidden"
     >
-      <motion.img
-        src={collection.image}
-        alt={collection.title}
-        className="h-full w-full object-cover"
+      <motion.div
+        style={{ backgroundImage: `url(${collection.image})` }}
+        className="h-full w-full bg-cover bg-center"
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.5 }}
       />
@@ -47,4 +46,3 @@ export function CollectionCard({ collection }: CollectionCardProps) {
     </motion.div>
   )
 }
-
