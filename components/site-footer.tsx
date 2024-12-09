@@ -2,9 +2,17 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, MotionProps } from "framer-motion"
 import { Facebook, Instagram, Twitter, ArrowRight, Music2 } from 'lucide-react'
 import { Input } from "@/components/ui/input"
+
+const MotionDiv = motion.div as React.FC<MotionProps & React.HTMLAttributes<HTMLDivElement>>;
+const MotionH3 = motion.h3 as React.FC<
+  React.HTMLAttributes<HTMLHeadingElement> & import('framer-motion').MotionProps
+>;
+const MotionA = motion.a as React.FC<
+  React.AnchorHTMLAttributes<HTMLAnchorElement> & import('framer-motion').MotionProps
+>;
 
 const collections = [
   { name: "Fringe", href: "#" },
@@ -103,7 +111,7 @@ export function SiteFooter() {
 
         {/* Newsletter */}
         <div>
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -131,30 +139,30 @@ export function SiteFooter() {
                 <ArrowRight className="h-5 w-5 text-zinc-400 transition-colors hover:text-white" />
               </button>
             </form>
-          </motion.div>
+          </MotionDiv>
         </div>
       </div>
 
       {/* Bottom Section */}
       <div className="border-t border-zinc-700">
         <div className="container flex flex-col items-center justify-between gap-6 px-4 py-8 md:flex-row">
-          <motion.h3
+          <MotionH3
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-xl font-light tracking-wider"
           >
             STAY IN TOUCH.
-          </motion.h3>
-          
-          <motion.div
+          </MotionH3>
+
+          <MotionDiv
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
             className="flex gap-6"
           >
             {socialLinks.map((item) => (
-              <motion.a
+              <MotionA
                 key={item.name}
                 href={item.href}
                 whileHover={{ scale: 1.1 }}
@@ -163,9 +171,9 @@ export function SiteFooter() {
               >
                 <item.icon className="h-5 w-5" />
                 <span className="sr-only">{item.name}</span>
-              </motion.a>
+              </MotionA>
             ))}
-          </motion.div>
+          </MotionDiv>
         </div>
       </div>
     </footer>

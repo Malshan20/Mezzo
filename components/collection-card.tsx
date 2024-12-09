@@ -1,8 +1,10 @@
 'use client'
 
-import { motion } from "framer-motion"
+import { motion, MotionProps } from "framer-motion"
 import { Collection } from "@/types/collection"
 import { Button } from "@/components/ui/button"
+
+const MotionDiv = motion.div as React.FC<MotionProps & React.HTMLAttributes<HTMLDivElement>>;
 
 interface CollectionCardProps {
   collection: Collection
@@ -10,13 +12,13 @@ interface CollectionCardProps {
 
 export function CollectionCard({ collection }: CollectionCardProps) {
   return (
-    <motion.div
+    <MotionDiv
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       className="relative aspect-[3/4] overflow-hidden"
     >
-      <motion.div
+      <MotionDiv
         style={{ backgroundImage: `url(${collection.image})` }}
         className="h-full w-full bg-cover bg-center"
         whileHover={{ scale: 1.05 }}
@@ -24,7 +26,7 @@ export function CollectionCard({ collection }: CollectionCardProps) {
       />
       <div className="absolute inset-0 bg-black/20" />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
-        <motion.div
+        <MotionDiv
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -41,8 +43,8 @@ export function CollectionCard({ collection }: CollectionCardProps) {
           >
             {collection.cta}
           </Button>
-        </motion.div>
+        </MotionDiv>
       </div>
-    </motion.div>
+    </MotionDiv>
   )
 }

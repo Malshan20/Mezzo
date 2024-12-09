@@ -1,7 +1,10 @@
 'use client'
 
-import { motion } from "framer-motion"
+import { motion, MotionProps } from "framer-motion"
 import { Button } from "@/components/ui/button"
+
+const MotionP = motion.p as React.FC<MotionProps & React.HTMLAttributes<HTMLParagraphElement>>;
+const MotionHeading = motion.h1 as React.FC<MotionProps & React.HTMLAttributes<HTMLHeadingElement>>;
 
 export function HeroSections() {
   return (
@@ -15,16 +18,16 @@ export function HeroSections() {
       <div className="absolute inset-0 bg-black/10" />
       
       <div className="relative flex h-full flex-col items-start justify-center p-12 text-white">
-        <motion.p
+        <MotionP
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="mb-4 text-sm tracking-widest"
         >
           WAYFARER COLLECTION
-        </motion.p>
+        </MotionP>
         
-        <motion.h1
+        <MotionHeading
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -33,7 +36,7 @@ export function HeroSections() {
           FOR THE WORLD
           <br />
           TRAVELERS
-        </motion.h1>
+        </MotionHeading>
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}

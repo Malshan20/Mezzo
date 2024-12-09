@@ -1,7 +1,12 @@
 'use client'
 
-import { motion } from "framer-motion"
+import { motion, MotionProps } from "framer-motion"
 import { Product } from "@/types/collection"
+
+const MotionDiv = motion.div as React.FC<MotionProps & React.HTMLAttributes<HTMLDivElement>>;
+const MotionImg = motion.img as React.FC<
+    React.ImgHTMLAttributes<HTMLImageElement> & import('framer-motion').MotionProps
+  >;
 
 interface ProductTileProps {
   product: Product
@@ -9,7 +14,7 @@ interface ProductTileProps {
 
 export function ProductTile({ product }: ProductTileProps) {
   return (
-    <motion.div
+    <MotionDiv
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -17,7 +22,7 @@ export function ProductTile({ product }: ProductTileProps) {
       className="group cursor-pointer"
     >
       <div className="overflow-hidden">
-        <motion.img
+        <MotionImg
           src={product.image}
           alt={product.name}
           className="h-[500px] w-full object-cover"
@@ -33,7 +38,7 @@ export function ProductTile({ product }: ProductTileProps) {
           ${product.price.toFixed(2)}
         </p>
       </div>
-    </motion.div>
+    </MotionDiv>
   )
 }
 

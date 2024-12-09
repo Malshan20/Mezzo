@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, MotionProps } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -9,6 +9,7 @@ import { Product } from '@/types/product'
 import { products } from '@/data/products'
 
 const categories = ['CASHMERE', 'COTTON', 'LINEN']
+const MotionDiv = motion.div as React.FC<MotionProps & React.HTMLAttributes<HTMLDivElement>>;
 
 export function ProductGrid() {
   const [selectedCategory, setSelectedCategory] = useState<string>('CASHMERE')
@@ -30,7 +31,7 @@ export function ProductGrid() {
           >
             {category}
             {selectedCategory === category && (
-              <motion.div
+              <MotionDiv
                 layoutId="underline"
                 className="absolute left-0 right-0 bottom-0 h-0.5 bg-black"
               />
@@ -52,7 +53,7 @@ export function ProductGrid() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <AnimatePresence mode="wait">
             {filteredProducts.map((product) => (
-              <motion.div
+              <MotionDiv
                 key={product.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -81,7 +82,7 @@ export function ProductGrid() {
                     {product.colorsAvailable} COLORS AVAILABLE
                   </p>
                 </div>
-              </motion.div>
+              </MotionDiv>
             ))}
           </AnimatePresence>
         </div>

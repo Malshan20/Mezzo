@@ -1,10 +1,12 @@
 'use client'
 
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, MotionProps } from "framer-motion"
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Product } from "@/types/product"
 import { Button } from "@/components/ui/button"
+
+const MotionDiv = motion.div as React.FC<MotionProps & React.HTMLAttributes<HTMLDivElement>>;
 
 interface ProductCarouselProps {
   products: Product[]
@@ -29,7 +31,7 @@ export function ProductCarousel({ products }: ProductCarouselProps) {
     <div className="relative w-full">
       <div className="relative aspect-[3/4] overflow-hidden">
         <AnimatePresence mode="wait">
-          <motion.div
+          <MotionDiv
             key={currentIndex}
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
@@ -42,7 +44,7 @@ export function ProductCarousel({ products }: ProductCarouselProps) {
               alt={products[currentIndex].name}
               className="h-full w-full object-cover"
             />
-          </motion.div>
+          </MotionDiv>
         </AnimatePresence>
       </div>
 
