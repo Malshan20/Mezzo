@@ -38,8 +38,7 @@ export default function Page() {
             </div>
           </div>
           <InfiniteMarquee />
-        </main>
-        <SiteFooter />      
+        </main>      
     </>
   )
 }

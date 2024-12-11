@@ -1,0 +1,24 @@
+@keyframes scroll-indicator {
+    0% {
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+    50% {
+      transform: scaleY(1);
+      transform-origin: top;
+    }
+    50.1% {
+      transform: scaleY(1);
+      transform-origin: bottom;
+    }
+    100% {
+      transform: scaleY(0);
+      transform-origin: bottom;
+    }
+  }
+  
+  .animate-scroll-indicator {
+    animation: scroll-indicator 2s infinite;
+  }
+  
+  

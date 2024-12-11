@@ -174,6 +174,7 @@ export function SiteFooter() {
               </MotionA>
             ))}
           </MotionDiv>
+          <p className="text-xs font-sans-serif" style={{}}>&copy; 2024 by Malshan. All rights reserved.</p>
         </div>
       </div>
     </footer>

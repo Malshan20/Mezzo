@@ -13,9 +13,8 @@ const MotionDiv = motion.div as React.FC<MotionProps & React.HTMLAttributes<HTML
 
 export function ProductGrid() {
   const [selectedCategory, setSelectedCategory] = useState<string>('CASHMERE')
-
   const filteredProducts = products.filter(
-    product => product.category.toUpperCase() === selectedCategory
+    product => product.category === selectedCategory
   )
 
   return (
